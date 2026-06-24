@@ -5,19 +5,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS, FONT, SPACING } from '../constants/theme';
 import { SOCIETY } from '../constants/mockData';
 
-// Full header with stats — used on Home.
+// Full header with stats, used on Home.
 export function HomeHeader() {
   return (
     <SafeAreaView edges={['top']} style={styles.bg}>
       <View style={styles.topRow}>
-        <View>
-          <Text style={styles.title}>🏘 Panchayat</Text>
-          <Text style={styles.sub}>{SOCIETY.name}, {SOCIETY.sub}</Text>
-        </View>
-        <View style={styles.verifiedBadge}>
-          <Ionicons name="shield-checkmark-outline" size={12} color={COLORS.white} />
-          <Text style={styles.verifiedText}>Verified</Text>
-        </View>
+        <Text style={styles.title}>Panchayat</Text>
       </View>
       <View style={styles.statsRow}>
         <Stat num={SOCIETY.members} label="Members" />
@@ -28,7 +21,7 @@ export function HomeHeader() {
   );
 }
 
-// Simple header with a title and optional back button — used on sub-screens.
+// Simple header with a title and optional back button, used on sub-screens.
 export function SimpleHeader({ title, onBack }) {
   return (
     <SafeAreaView edges={['top']} style={styles.bg}>
@@ -58,9 +51,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
   },
   topRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     paddingHorizontal: SPACING.lg,
     paddingTop: SPACING.sm,
     paddingBottom: SPACING.md,
@@ -69,42 +60,30 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontSize: FONT.size.xxl,
     fontWeight: FONT.weight.medium,
-  },
-  sub: {
-    color: 'rgba(255,255,255,0.75)',
-    fontSize: FONT.size.sm,
-    marginTop: 2,
-  },
-  verifiedBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
-    backgroundColor: 'rgba(255,255,255,0.15)',
-    borderRadius: 20,
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderWidth: 0.5,
-    borderColor: 'rgba(255,255,255,0.25)',
-  },
-  verifiedText: {
-    color: COLORS.white,
-    fontSize: FONT.size.xs,
+    textAlign: 'center',
   },
   statsRow: {
     flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     gap: 20,
     paddingHorizontal: SPACING.lg,
     paddingBottom: SPACING.lg,
   },
-  statPill: { alignItems: 'center' },
+  statPill: {
+    alignItems: 'center',
+    minWidth: 56,
+  },
   statNum: {
     color: COLORS.white,
     fontSize: FONT.size.xl,
     fontWeight: FONT.weight.medium,
+    textAlign: 'center',
   },
   statLabel: {
     color: 'rgba(255,255,255,0.7)',
     fontSize: 10,
+    textAlign: 'center',
   },
   simpleRow: {
     flexDirection: 'row',
